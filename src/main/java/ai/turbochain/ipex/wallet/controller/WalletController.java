@@ -74,7 +74,6 @@ public class WalletController {
     public MessageResult balance(){
         try {
             BigDecimal balance = new BigDecimal(rpcClient.getBalance());
-
             MessageResult result = new MessageResult(0,"success");
             result.setData(balance);
             return result;
@@ -90,7 +89,6 @@ public class WalletController {
     public MessageResult balance(@PathVariable String address){
         try {
             String account = rpcClient.getAccount(address);
-            System.out.println("account="+account+",address="+address);
             BigDecimal balance = new BigDecimal(rpcClient.getBalance(account));
             MessageResult result = new MessageResult(0,"success");
             result.setData(balance);
